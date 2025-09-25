@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Markus – Resume & Portfolio</title>
+  <meta name="description" content="Resume & portfolio website built with Tailwind CSS" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💼</text></svg>">    
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ["Inter", "ui-sans-serif", "system-ui", "Segoe UI", "Roboto", "Helvetica", "Arial"],
+          },
+          boxShadow: {
+            glow: "0 0 0 3px rgba(59,130,246,.25)",
+          },
+          keyframes: {
+            floaty: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-6px)' },
+            }
+          },
+          animation: {
+            floaty: 'floaty 6s ease-in-out infinite',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    /* Print-friendly resume view */
+    @media print {
+      .no-print { display: none !important; }
+      .print-block { display: block !important; }
+      body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-weight: normal; font-size: .9em; }
+    }
+  </style>
+</head>
+<body class="font-display bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+   <div class="fixed inset-0 -z-10 overflow-hidden">
+    <iframe
+      class="absolute top-1/2 left-1/2 w-[177.78vh] h-[100vh] min-w-[100vw] min-h-[56.25vw] transform -translate-x-1/2 -translate-y-1/2"
+      src="https://www.youtube.com/embed/Z90rTdVoomY?autoplay=1&mute=1&loop=1&playlist=Z90rTdVoomY&controls=0&rel=0&iv_load_policy=3&playsinline=1"
+      frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="Background Video"></iframe>
+  </div>
+  <!-- Background Accent -->
+  <div aria-hidden class="pointer-events-none fixed inset-0 -z-10">
+    <div class="absolute -top-24 left-1/2 h-72 w-[48rem] -translate-x-1/2 rounded-full bg-gradient-to-br from-indigo-300/40 via-fuchsia-300/40 to-cyan-300/40 blur-3xl dark:from-indigo-600/20 dark:via-fuchsia-600/20 dark:to-cyan-600/20"></div>
+  </div>
+
+  <!-- Sticky Nav -->
+  <header class="sticky top-0 z-30 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-slate-900/60 border-b border-slate-200/60 dark:border-slate-800/60">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="flex items-center justify-between py-3">
+      <a href="#home" class="group inline-flex items-center gap-2">
+        <!-- House icon -->
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-white shadow-glow">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+            <path d="M12 3l9 8h-3v9h-4v-6H10v6H6v-9H3l9-8z"/>
+          </svg>
+        </span>
+        <span class="text-sm font-semibold tracking-wide">MyResume</span>
+      </a>
+        <nav class="hidden gap-6 text-sm md:flex">
+          <a href="#about" class="hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+          <a href="#skills" class="hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a>
+          <a href="#experience" class="hover:text-indigo-600 dark:hover:text-indigo-400">Experience</a>
+          <a href="#projects" class="hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+          <a href="#education" class="hover:text-indigo-600 dark:hover:text-indigo-400">Education</a>
+          <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <button id="themeToggle" class="no-print rounded-xl border border-slate-200/70 bg-white/70 px-3 py-1.5 text-xs shadow-sm hover:shadow-md dark:border-slate-700/70 dark:bg-slate-800/70" aria-label="Toggle theme">🌗 Theme</button>
+          <button onclick="window.print()" class="no-print rounded-xl bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow hover:bg-indigo-500">Download PDF</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="mx-auto max-w-6xl px-4">
+    <div class="grid gap-8 py-14 md:grid-cols-[2fr,1fr] md:items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs text-slate-600 shadow dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-300">
+          <span class="inline-block h-2 w-2 animate-pulse rounded-full bg-emerald-500"></span>
+          Open to opportunities
+        </span>
+        <h1 class="mt-4 text-3xl font-black tracking-tight sm:text-5xl">
+          Hi, I'm <span class="bg-gradient-to-r from-indigo-600 via-fuchsia-600 to-cyan-600 bg-clip-text text-transparent">Markus</span>
+        </h1>
+        <p class="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
+          I turn coffee ☕ into code and ideas 💡 into reality. — e.g., Frontend Engineer crafting fast, accessible web experiences with React, TypeScript, and delightful micro-interactions.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#projects" class="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-indigo-500">See Projects</a>
+          <a href="#contact" class="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-white dark:border-slate-700 dark:hover:bg-slate-800">Contact</a>
+          <a href="#experience" class="rounded-xl border border-transparent px-4 py-2 text-sm font-semibold hover:border-slate-300 dark:hover:border-slate-700">Experience</a>
+        </div>
+      </div>
+      <div class="justify-self-center">
+        <!-- Avatar / Illustration -->
+        <div class="relative aspect-square w-40 overflow-hidden rounded-3xl bg-gradient-to-tr from-indigo-500/20 via-fuchsia-500/20 to-cyan-500/20 p-1 shadow-xl ring-1 ring-slate-200/60 dark:ring-slate-700/60 md:w-56">
+          <img src="IMG_4747.JPG" alt="Avatar" class="h-full w-full rounded-2xl object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="mx-auto max-w-6xl px-4 pb-4">
+    <div class="grid gap-8 md:grid-cols-3">
+      <div class="md:col-span-2">
+        <h2 class="text-xl font-bold tracking-tight">About</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+           A curious and creative aspiring web developer passionate about building engaging front-end experiences. I love experimenting with new technologies and bringing ideas to life through clean, interactive designs. When I’m not coding, I enjoy exploring design trends, learning new skills, and working on fun side projects. My goal is to become a skilled front-end developer who creates websites that are both beautiful and user-friendly.
+        </p>
+      </div>
+      <ul class="grid content-start gap-3">
+        <li class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/70 p-3 text-sm shadow-sm dark:border-slate-700 dark:bg-slate-800/50">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-600 text-white">⌛</span>
+          <div><p class="font-semibold">Experience</p><p class="text-slate-500 dark:text-slate-400">4 years</p></div>
+        </li>
+        <li class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/70 p-3 text-sm shadow-sm dark:border-slate-700 dark:bg-slate-800/50">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-600 text-white">📍</span>
+          <div><p class="font-semibold">Location</p><p class="text-slate-500 dark:text-slate-400">Bangkok, Thailand · Remote-friendly</p></div>
+        </li>
+                <!-- Instagram -->
+        <a href="https://instagram.com/_its_me.markus/" target="_blank" rel="noopener noreferrer">
+          <li class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/70 p-3 text-sm shadow-sm transition hover:bg-white dark:border-slate-700 dark:bg-slate-800/50 dark:hover:bg-slate-700/70">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-tr from-purple-500 to-pink-500 text-white">
+              <!-- Instagram Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.88a1.13 1.13 0 1 1-2.25 0 1.13 1.13 0 0 1 2.25 0z"/>
+              </svg>
+            </span>
+            <div>
+              <p class="font-semibold">Instagram</p>
+              <p class="text-slate-500 dark:text-slate-400">@_its_me.markus</p>
+            </div>
+          </li>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://facebook.com/markus.gegenwart/" target="_blank" rel="noopener noreferrer">
+          <li class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/70 p-3 text-sm shadow-sm transition hover:bg-white dark:border-slate-700 dark:bg-slate-800/50 dark:hover:bg-slate-700/70">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-blue-600 text-white">
+              <!-- Facebook Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                <path d="M13 3h4a1 1 0 0 1 1 1v4h-3a2 2 0 0 0-2 2v3h5l-1 4h-4v7h-4v-7H8v-4h3V9a5 5 0 0 1 5-5z"/>
+              </svg>
+            </span>
+            <div>
+              <p class="font-semibold">Facebook</p>
+              <p class="text-slate-500 dark:text-slate-400">facebook.com/markus.gegenwart</p>
+            </div>
+          </li>
+        </a>
+
+        <!-- LINE -->
+        <a href="https://line.me/ti/p/wXo9xqKhvv"_blank" rel="noopener noreferrer">
+          <li class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/70 p-3 text-sm shadow-sm transition hover:bg-white dark:border-slate-700 dark:bg-slate-800/50 dark:hover:bg-slate-700/70">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-green-500 text-white">
+              <!-- LINE Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="currentColor" class="h-5 w-5">
+                <path d="M18 3C9.164 3 2 9.58 2 17.5c0 5.3 3.518 9.96 8.68 12.35-.12.88-.76 4.29-.88 5.01 0 0-.02.17.09.24.11.07.24.02.24.02.31-.04 3.57-2.35 4.14-2.74.46-.31.95-.64 1.38-.99 1.13.16 2.29.24 3.47.24 8.836 0 16-6.58 16-14.5S26.836 3 18 3z"/>
+              </svg>
+            </span>
+            <div>
+              <p class="font-semibold">LINE</p>
+              <p class="text-slate-500 dark:text-slate-400">@markus.ge2003</p>
+            </div>
+          </li>
+        </a>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="mx-auto max-w-6xl px-4 py-10">
+    <h2 class="text-xl font-bold tracking-tight">Skills</h2>
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      <!-- Skill tags -->
+      <div class="rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800/50">
+        <h3 class="font-semibold">Core</h3>
+        <div class="mt-3 flex flex-wrap gap-2">
+
+          <!-- HTML -->
+          <span class="flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1 text-xl dark:border-slate-700">
+            <img src="icons/HTML.png" alt="HTML" class="h-5 w-5" />
+            HTML
+          </span>
+
+          <!-- CSS / Tailwind -->
+          <span class="flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1 text-xl dark:border-slate-700">
+            <img src="icons/css.png" alt="CSS" class="h-5 w-5" />
+            CSS / Tailwind
+          </span>
+
+          <!-- JavaScript / TypeScript -->
+          <span class="flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1 text-xl dark:border-slate-700">
+            <img src="icons/javascript.png" alt="JavaScript" class="h-5 w-5" />
+            JavaScript / TypeScript
+          </span>
+
+          <!-- React -->
+          <span class="flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1 text-xl dark:border-slate-700">
+            <img src="icons/react.png" alt="React" class="h-5 w-5" />
+            React
+          </span>
+
+          <!-- Node.js -->
+          <span class="flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1 text-xl dark:border-slate-700">
+            <img src="icons/node.png" alt="Node.js" class="h-5 w-5" />
+            Node.js
+          </span>
+
+          <!-- Python -->
+          <span class="flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1 text-xl dark:border-slate-700">
+            <img src="icons/python.png" alt="Python" class="h-5 w-5" />
+            Python
+          </span>
+
+        </div>
+      </div>
+
+      <!-- Progress bars -->
+      <div class="rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800/50">
+        <h3 class="font-semibold">Proficiency</h3>
+        <div class="mt-4 space-y-4">
+          <div>
+            <div class="flex justify-between text-xs"><span>HTML</span><span>Advanced</span></div>
+            <div class="mt-1 h-2 rounded-full bg-slate-200 dark:bg-slate-700">
+              <div class="h-2 w-11/12 rounded-full bg-gradient-to-r from-indigo-500 to-fuchsia-500"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs"><span>CSS/Tailwind</span><span>Advanced</span></div>
+            <div class="mt-1 h-2 rounded-full bg-slate-200 dark:bg-slate-700">
+              <div class="h-2 w-10/12 rounded-full bg-gradient-to-r from-indigo-500 to-fuchsia-500"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs"><span>Python</span><span>Intermediate</span></div>
+            <div class="mt-1 h-2 rounded-full bg-slate-200 dark:bg-slate-700">
+              <div class="h-2 w-9/12 rounded-full bg-gradient-to-r from-indigo-500 to-fuchsia-500"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline -->
+  <section id="experience" class="mx-auto max-w-6xl px-4 py-10">
+    <h2 class="text-xl font-bold tracking-tight">Experience</h2>
+    <ol class="mt-6 space-y-6 border-l-2 border-slate-200 pl-6 dark:border-slate-700">
+      <li class="relative">
+        <span class="absolute -left-[9px] mt-1 h-4 w-4 rounded-full bg-indigo-500 ring-4 ring-white dark:ring-slate-900"></span>
+        <div class="rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800/50">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="font-semibold">Frontend Engineer · [Company]</h3>
+            <span class="text-xs text-slate-500">2023 — Present</span>
+          </div>
+          <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-600 dark:text-slate-300">
+            <li>Led migration to Vite + SWC, cutting build time by 45%.</li>
+            <li>Own design system with Tailwind + Radix; reduced UI defects by 30%.</li>
+            <li>Drove a11y improvements to WCAG AA; Lighthouse Accessibility 100.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="relative">
+        <span class="absolute -left-[9px] mt-1 h-4 w-4 rounded-full bg-indigo-500 ring-4 ring-white dark:ring-slate-900"></span>
+        <div class="rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800/50">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="font-semibold">Full‑stack Developer · [Company]</h3>
+            <span class="text-xs text-slate-500">2021 — 2023</span>
+          </div>
+          <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-600 dark:text-slate-300">
+            <li>Built internal dashboards (React + Node + PostgreSQL) used by 200+ staff.</li>
+            <li>Shipped real‑time notifications via WebSocket, increasing engagement 18%.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="mx-auto max-w-6xl px-4 py-10">
+    <div class="flex items-end justify-between">
+      <h2 class="text-xl font-bold tracking-tight">Projects</h2>
+      <a href="#" class="text-sm text-indigo-600 hover:underline dark:text-indigo-400">View GitHub →</a>
+    </div>
+    <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Card 1 -->
+      <article class="group rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50">
+        <div class="aspect-[16/9] overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-700">
+          <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=800&auto=format&fit=crop" alt="project"/>
+        </div>
+        <h3 class="mt-3 font-semibold">Design System Kit</h3>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Reusable components, tokens, and theming for rapid product delivery.</p>
+        <div class="mt-3 flex flex-wrap gap-2 text-xs">
+          <span class="rounded-lg bg-slate-100 px-2 py-1 dark:bg-slate-700/70">Tailwind</span>
+          <span class="rounded-lg bg-slate-100 px-2 py-1 dark:bg-slate-700/70">React</span>
+          <span class="rounded-lg bg-slate-100 px-2 py-1 dark:bg-slate-700/70">Storybook</span>
+        </div>
+      </article>
+      <!-- Card 2 -->
+      <article class="group rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50">
+        <div class="aspect-[16/9] overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-700">
+          <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop" alt="project"/>
+        </div>
+        <h3 class="mt-3 font-semibold">Analytics Dashboard</h3>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">KPI visualization with role-based access and exportable reports.</p>
+        <div class="mt-3 flex flex-wrap gap-2 text-xs">
+          <span class="rounded-lg bg-slate-100 px-2 py-1 dark:bg-slate-700/70">Next.js</span>
+          <span class="rounded-lg bg-slate-100 px-2 py-1 dark:bg-slate-700/70">PostgreSQL</span>
+          <span class="rounded-lg bg-slate-100 px-2 py-1 dark:bg-slate-700/70">Prisma</span>
+        </div>
+      </article>
+      <!-- Card 3 -->
+      <article class="group rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50">
+        <div class="aspect-[16/9] overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-700">
+          <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=800&auto=format&fit=crop" alt="project"/>
+        </div>
+        <h3 class="mt-3 font-semibold">Realtime Chat App</h3>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">WebSocket-based messaging with optimistic UI and offline cache.</p>
+        <div class="mt-3 flex flex-wrap gap-2 text-xs">
+          <span class="rounded-lg bg-slate-100 px-2 py-1 dark:bg-slate-700/70">Node</span>
+          <span class="rounded-lg bg-slate-100 px-2 py-1 dark:bg-slate-700/70">tRPC</span>
+          <span class="rounded-lg bg-slate-100 px-2 py-1 dark:bg-slate-700/70">Redis</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Education & Certs -->
+  <section id="education" class="mx-auto max-w-6xl px-4 py-10">
+    <div class="grid gap-6 md:grid-cols-2">
+      <div>
+        <h2 class="text-xl font-bold tracking-tight">Education</h2>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800/50">
+          <h3 class="font-semibold">B.Sc. in Computer Science · [University]</h3>
+          <p class="text-sm text-slate-500">2017 — 2021</p>
+          <ul class="mt-2 list-disc pl-5 text-sm text-slate-600 dark:text-slate-300">
+            <li>Graduated with Honors, GPA: 3.7/4.0</li>
+            <li>Capstone: Predictive model for [topic], improved accuracy by 14%.</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold tracking-tight">Certifications</h2>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800/50">
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center justify-between">
+              <span>Google Professional Cloud Developer</span>
+              <span class="text-slate-500">2024</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>AWS Certified Developer – Associate</span>
+              <span class="text-slate-500">2023</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="mx-auto max-w-6xl px-4 py-10">
+    <div class="rounded-3xl border border-slate-200 bg-gradient-to-br from-white/90 to-white/60 p-6 shadow-sm backdrop-blur dark:border-slate-700 dark:from-slate-800/80 dark:to-slate-800/40">
+      <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+        <div>
+          <h2 class="text-xl font-bold tracking-tight">Let’s work together</h2>
+          <p class="mt-1 text-slate-600 dark:text-slate-300">Email me or say hi on socials — I’m always excited about impactful projects.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+
+          <!-- Email copy button -->
+          <button id="copyEmailBtn" 
+                  class="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-indigo-500 relative">
+            markus.ge2003@gmail.com
+            <!-- Popup message -->
+            <span id="copyMsg" class="absolute -top-8 left-1/2 -translate-x-1/2 rounded bg-gray-800 px-2 py-1 text-xs text-white opacity-0 transition-opacity">
+              Copy ready!
+            </span>
+          </button>
+
+          <!-- Other links -->
+          <a href="https://www.linkedin.com/in/markus-gegenwart-63904a231/" target="_blank" rel="noopener noreferrer" 
+            class="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-white dark:border-slate-700 dark:hover:bg-slate-800">
+            LinkedIn
+          </a>
+          <a href="https://github.com/GeMarkus" target="_blank" rel="noopener noreferrer" 
+            class="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-white dark:border-slate-700 dark:hover:bg-slate-800">
+            GitHub
+          </a>
+          <a href="https://x.com/gegenwartmarkus?s=21" target="_blank" rel="noopener noreferrer" 
+            class="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-white dark:border-slate-700 dark:hover:bg-slate-800">
+            Twitter
+          </a>
+        </div>
+
+        <script>
+          const copyBtn = document.getElementById('copyEmailBtn');
+          const copyMsg = document.getElementById('copyMsg');
+
+          copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText('markus.ge2003@gmail.com').then(() => {
+              copyMsg.classList.remove('opacity-0');
+              setTimeout(() => {
+                copyMsg.classList.add('opacity-0');
+              }, 1500); // popup disappears after 1.5s
+            });
+          });
+        </script>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mx-auto max-w-6xl px-4 py-8 text-center text-sm text-white">
+    © <span id="year"></span> GegenwartMarkus. All rights reserved.
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const storageKey = 'prefers-dark';
+    const root = document.documentElement;
+    const saved = localStorage.getItem(storageKey);
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if ((saved === 'true') || (!saved && systemDark)) root.classList.add('dark');
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem(storageKey, root.classList.contains('dark'));
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
